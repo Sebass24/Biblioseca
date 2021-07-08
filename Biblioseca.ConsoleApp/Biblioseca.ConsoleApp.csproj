@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{469E4502-B39F-4D40-B7AF-88E449683751}</ProjectGuid>
+    <ProjectGuid>{2E9E8FD2-663E-4391-A483-E5B23BDAF788}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>Biblioseca.ConsoleApp</RootNamespace>
     <AssemblyName>Biblioseca.ConsoleApp</AssemblyName>
@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Biblioseca.Model\Biblioseca.Model.csproj">
-      <Project>{bd23e00a-f2b3-4932-9425-c6598a225b4d}</Project>
+      <Project>{38f28d76-cfe5-43c2-b4b3-77f6344c994d}</Project>
       <Name>Biblioseca.Model</Name>
     </ProjectReference>
   </ItemGroup>
