@@ -63,7 +63,8 @@
     <Compile Include="Book.cs" />
     <Compile Include="Partner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Biblioseca.cs" />
+    <Compile Include="Loan.cs" />
+    <Compile Include="Punishment.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mapping\author.hbm.xml" />
