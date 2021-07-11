@@ -9,7 +9,7 @@ namespace Biblioseca.Model
     class Book
     {
         public virtual string Title { get; set; }
-        public virtual string Author { get; set; } //ver esto
+        public virtual Author author { get; set; } //ver esto
         public virtual string Description { get; set; }
         public virtual string Category { get; set; }
         public int ISBN { get; set; }

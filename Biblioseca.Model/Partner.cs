@@ -12,5 +12,14 @@ namespace Biblioseca.Model
         public virtual string LastName { get; set; }
         public virtual string UserName { get; set; }
         public virtual int Id { get; set; }
+
+        public void BorrowBook(Book book)
+        {
+
+        }
+        public void ReturnBook(Book book)
+        {
+
+        }
     }
 }
