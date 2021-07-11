@@ -1,10 +1,13 @@
 ﻿using System;
 namespace Biblioseca.Model
 {
-    public class Punishment
+    public class Punishment //castigo
     {
-        public Punishment()
-        {
-        }
+
+        public int Id { get; set; }
+        public int Count { get; set; }
+       
+
+
     }
 }
