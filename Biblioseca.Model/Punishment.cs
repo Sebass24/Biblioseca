@@ -1,11 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace Biblioseca.Model
 {
     public class Punishment //castigo
     {
 
-        public int Id { get; set; }
-        public int Count { get; set; }
+        public virtual int Id { get; set; }
+        public virtual Partner Partner { get; set; }
+        public Loan Loan { get; set; }
+        public virtual int Count { get; set; }
        
 
 
