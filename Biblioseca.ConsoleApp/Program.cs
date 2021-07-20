@@ -21,15 +21,22 @@ namespace Biblioseca.ConsoleApp
 
             Author author = session.Get<Author>(1);
             Category category = session.Get<Category>(1);
+            Book book = new Book();
+            book.Title = "Fisica 5";
+            book.Author = author;
+            book.Description = "Magnetismo";
+            book.Category = category;
+            book.ISBN = "123-443-221";
+            book.Price = 100;
 
-            Book book = session.Get<Book>(1);
+            //Book book = session.Get<Book>(1);
             //Author author = new Author();
             //author.FirstName = "Steve";
             //author.LastName = "Rogers";
 
-            //session.Save(author);
+            session.Save(book);
 
-            //Console.WriteLine(author.Id);
+            Console.WriteLine(book.Id);
             //Console.ReadKey();
         }
     }

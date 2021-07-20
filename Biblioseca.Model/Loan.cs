@@ -10,8 +10,9 @@ namespace Biblioseca.Model
     {
         public virtual Book Book { get; set; }
         public virtual Partner Partner { get; set; }
-        public DateTime Start { get; set; }
-        public DateTime Finish { get; set; }
+        public virtual DateTime Start { get; set; }
+        public virtual DateTime Finish { get; set; }
+        public virtual int Id { get; set; }
 
 
     }

@@ -12,7 +12,7 @@ namespace Biblioseca.Model
         public virtual Author Author { get; set; } 
         public virtual string Description { get; set; }
         public virtual Category Category { get; set; }
-        public virtual int ISBN { get; set; }
+        public virtual string ISBN { get; set; }
         public virtual int Id { get; set; }
         public virtual double Price { get; set; }
 
