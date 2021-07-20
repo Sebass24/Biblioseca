@@ -18,15 +18,19 @@ namespace Biblioseca.ConsoleApp
                 .BuildSessionFactory();
 
             ISession session = sessionFactory.OpenSession();
-                
-            Author author = new Author();
-            author.FirstName = "Steve";
-            author.LastName = "Rogers";
 
-            session.Save(author);
+            Author author = session.Get<Author>(1);
+            Category category = session.Get<Category>(1);
 
-            Console.WriteLine(author.Id);
-            Console.ReadKey();
+            Book book = session.Get<Book>(1);
+            //Author author = new Author();
+            //author.FirstName = "Steve";
+            //author.LastName = "Rogers";
+
+            //session.Save(author);
+
+            //Console.WriteLine(author.Id);
+            //Console.ReadKey();
         }
     }
 }
