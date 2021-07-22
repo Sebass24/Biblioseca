@@ -6,13 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{9E790765-6F01-4BB7-9147-4BD474A8324F}"
 	ProjectSection(SolutionItems) = preProject
 		resources\1.Modelo-de-negocio.md = resources\1.Modelo-de-negocio.md
-		resources\example.config = resources\example.config
+		resources\App.config = resources\App.config
 		resources\template.hbm.xml = resources\template.hbm.xml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioseca.ConsoleApp", "Biblioseca.ConsoleApp\Biblioseca.ConsoleApp.csproj", "{469E4502-B39F-4D40-B7AF-88E449683751}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioseca.ConsoleApp", "Biblioseca.ConsoleApp\Biblioseca.ConsoleApp.csproj", "{2E9E8FD2-663E-4391-A483-E5B23BDAF788}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioseca.Model", "Biblioseca.Model\Biblioseca.Model.csproj", "{BD23E00A-F2B3-4932-9425-C6598A225B4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioseca.Model", "Biblioseca.Model\Biblioseca.Model.csproj", "{38F28D76-CFE5-43C2-B4B3-77F6344C994D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Biblioseca.Test", "Biblioseca.Test\Biblioseca.Test.csproj", "{13BDA6CB-4FBC-4C69-996E-316B5A1D7C48}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,14 +22,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{469E4502-B39F-4D40-B7AF-88E449683751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{469E4502-B39F-4D40-B7AF-88E449683751}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{469E4502-B39F-4D40-B7AF-88E449683751}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{469E4502-B39F-4D40-B7AF-88E449683751}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BD23E00A-F2B3-4932-9425-C6598A225B4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BD23E00A-F2B3-4932-9425-C6598A225B4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BD23E00A-F2B3-4932-9425-C6598A225B4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BD23E00A-F2B3-4932-9425-C6598A225B4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9E8FD2-663E-4391-A483-E5B23BDAF788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9E8FD2-663E-4391-A483-E5B23BDAF788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9E8FD2-663E-4391-A483-E5B23BDAF788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9E8FD2-663E-4391-A483-E5B23BDAF788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F28D76-CFE5-43C2-B4B3-77F6344C994D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F28D76-CFE5-43C2-B4B3-77F6344C994D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F28D76-CFE5-43C2-B4B3-77F6344C994D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F28D76-CFE5-43C2-B4B3-77F6344C994D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13BDA6CB-4FBC-4C69-996E-316B5A1D7C48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BDA6CB-4FBC-4C69-996E-316B5A1D7C48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BDA6CB-4FBC-4C69-996E-316B5A1D7C48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BDA6CB-4FBC-4C69-996E-316B5A1D7C48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

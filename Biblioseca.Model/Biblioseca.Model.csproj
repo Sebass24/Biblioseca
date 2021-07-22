@@ -83,5 +83,8 @@
   <ItemGroup>
     <EmbeddedResource Include="Mapping\loan.hbm.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\punishment.hbm.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

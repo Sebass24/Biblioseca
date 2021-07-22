@@ -10,8 +10,8 @@ namespace Biblioseca.Model
 
         public virtual int Id { get; set; }
         public virtual Partner Partner { get; set; }
-        public Loan Loan { get; set; }
-        public virtual int Count { get; set; }
+        public virtual Loan Loan { get; set; }
+        //public virtual int Count { get; set; }
        
 
 

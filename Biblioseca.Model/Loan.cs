@@ -12,6 +12,7 @@ namespace Biblioseca.Model
         public virtual Partner Partner { get; set; }
         public virtual DateTime Start { get; set; }
         public virtual DateTime Finish { get; set; }
+        public virtual bool Status { get; set; }
         public virtual int Id { get; set; }
 
 

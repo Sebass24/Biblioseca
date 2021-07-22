@@ -35,6 +35,7 @@ namespace Biblioseca.ConsoleApp
             //author.LastName = "Rogers";
 
             session.Save(book);
+            session.Close();
 
             Console.WriteLine(book.Id);
             //Console.ReadKey();
