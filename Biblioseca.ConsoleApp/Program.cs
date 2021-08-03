@@ -19,25 +19,51 @@ namespace Biblioseca.ConsoleApp
 
             ISession session = sessionFactory.OpenSession();
 
-            Author author = session.Get<Author>(1);
-            Category category = session.Get<Category>(1);
-            Book book = new Book();
-            book.Title = "Fisica 5";
-            book.Author = author;
-            book.Description = "Magnetismo";
-            book.Category = category;
-            book.ISBN = "123-443-221";
-            book.Price = 100;
+            Author author = new Author
+            {
+                FirstName = "Carlitos",
+                LastName = "Saul"
+            };
 
-            //Book book = session.Get<Book>(1);
-            //Author author = new Author();
-            //author.FirstName = "Steve";
-            //author.LastName = "Rogers";
+            Category category = new Category
+            {
+                Name = "Horror"
+            };
+            Book book = new Book
+            {
+                Title = "De la estratosfera a Japón",
+                Author = author,
+                Category = category,
+                Description = "Mejor no escribo nada acá",
+                ISBN = "123 3214 123",
+                Price = 120,
+            };
+            Partner partner = new Partner
+            {
+                FirstName = "Julio",
+                LastName = "Pascual",
+                UserName = "Nobita",
+            };
 
+            Loan loan = new Loan
+            {
+                Book = book,
+                Partner = partner,
+                Start = DateTime.Parse("5/1/2008 8:30:52 AM"),
+                Finish = DateTime.Parse("12/1/2008 8:30:52 AM"),
+                Status = false
+            };
+
+            session.Save(category);
+            session.Save(author);
             session.Save(book);
+            session.Save(partner);
+            session.Save(loan);
+
+            
             session.Close();
 
-            Console.WriteLine(book.Id);
+            Console.WriteLine(loan.Id);
             //Console.ReadKey();
         }
     }

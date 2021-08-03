@@ -8,7 +8,12 @@ namespace Biblioseca.Model
 {
     public class Partner
     {
-        List<Loan> loans = new List<Loan>();
+        public Partner()
+        {
+            loans = new List<Loan>();
+        }
+
+        public virtual IList<Loan> loans { get; set; }       
         public virtual string FirstName { get; set; }
         public virtual string LastName { get; set; }
         public virtual string UserName { get; set; }

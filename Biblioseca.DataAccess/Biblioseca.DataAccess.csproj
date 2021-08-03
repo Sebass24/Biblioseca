@@ -1,19 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38F28D76-CFE5-43C2-B4B3-77F6344C994D}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Biblioseca.Model</RootNamespace>
-    <AssemblyName>Biblioseca.Model</AssemblyName>
+    <ProjectGuid>{EEF582B1-5E5C-4AA3-8ACE-19D5354C33E2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Biblioseca.DataAccess</RootNamespace>
+    <AssemblyName>Biblioseca.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -59,35 +61,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Author.cs" />
-    <Compile Include="Book.cs" />
-    <Compile Include="BusinessRuleException.cs" />
-    <Compile Include="Ensure.cs" />
-    <Compile Include="Partner.cs" />
+    <Compile Include="Authors\AuthorDao.cs" />
+    <Compile Include="Authors\IAuthorDao.cs" />
+    <Compile Include="Books\IBookDao.cs" />
+    <Compile Include="Categories\ICategoryDao.cs" />
+    <Compile Include="Loans\ILoanDao.cs" />
+    <Compile Include="Partners\IPartnerDao.cs" />
+    <Compile Include="PunishmentDao.cs" />
+    <Compile Include="Loans\LoanDao.cs" />
+    <Compile Include="Partners\PartnerDao.cs" />
+    <Compile Include="Books\BookDao.cs" />
+    <Compile Include="Categories\CategoryDao.cs" />
+    <Compile Include="Dao.cs" />
+    <Compile Include="IDao.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Loan.cs" />
-    <Compile Include="Punishment.cs" />
-    <Compile Include="Category.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\author.hbm.xml" />
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Mapping\book.hbm.xml" />
+    <ProjectReference Include="..\Biblioseca.ConsoleApp\Biblioseca.ConsoleApp.csproj">
+      <Project>{2e9e8fd2-663e-4391-a483-e5b23bdaf788}</Project>
+      <Name>Biblioseca.ConsoleApp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biblioseca.Model\Biblioseca.Model.csproj">
+      <Project>{38f28d76-cfe5-43c2-b4b3-77f6344c994d}</Project>
+      <Name>Biblioseca.Model</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mapping\category.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mapping\partner.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mapping\loan.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mapping\punishment.hbm.xml" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
