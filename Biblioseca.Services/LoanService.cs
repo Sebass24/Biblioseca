@@ -11,7 +11,6 @@ using Biblioseca.Model;
 
 namespace Biblioseca.Services
 {
-
     public class LoanService
     {
         private readonly LoanDao loanDao;
@@ -29,13 +28,13 @@ namespace Biblioseca.Services
         {
             Book book = bookDao.Get(bookId);
             Ensure.NotNull(book, "Libro no existe. ");
+            Ensure.IsTrue(book.Stock > 0, "Este libro no está disponibles. ");
 
             Partner partner = partnerDao.Get(partnerId);
             Ensure.NotNull(partner, "Socio no existe. ");
-            Ensure.IsTrue(partner.loans.Count < 2, "No puede pedir prestado más libros. ");
-
-            IEnumerable<Loan> loans = loanDao.GetLoansByBookId(bookId);
-            Ensure.IsTrue(!loans.Any(), "El libro ya fue prestado. ");
+            
+            IEnumerable<Loan> loans = loanDao.GetLoans(partnerId);
+            Ensure.IsTrue(loans.Count() < 2, "El socio no puede pedir más libros");
 
             Loan loan = new Loan
             {
@@ -44,9 +43,28 @@ namespace Biblioseca.Services
                 Start = DateTime.Now
             };
 
+            book.Stock -= 1;
+
             loanDao.Save(loan);
 
             return loan;
         }
+
+        public void Returns(int bookId, int partnerId)
+        {
+
+        }
+
+        public IEnumerable<Loan> ListLoans()
+        {
+            IEnumerable<Loan> loans = loanDao.GetAll();
+
+            Ensure.NotNull(loans, "No hay prestamos.");
+
+            return loans;
+        }
+
+
+
     }
 }

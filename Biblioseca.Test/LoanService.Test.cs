@@ -119,7 +119,8 @@ namespace Biblioseca.Test
             {
                 Title = "A title",
                 Description = "A description",
-                Price = 1.0
+                Price = 1.0,
+                Stock= 2
             };
 
             return book;

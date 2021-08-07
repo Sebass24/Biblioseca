@@ -46,6 +46,7 @@
     <Compile Include="AuthorService.cs" />
     <Compile Include="BookService.cs" />
     <Compile Include="CategoryService.cs" />
+    <Compile Include="IBasicServices.cs" />
     <Compile Include="LoanService.cs" />
     <Compile Include="PartnerService.cs" />
     <Compile Include="Program.cs" />

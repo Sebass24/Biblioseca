@@ -41,5 +41,46 @@ namespace Biblioseca.DataAccess
                 .Query<T>();
         }
 
+        public T GetUniqueByHqlQuery(string queryString, IDictionary<string, object> parameters)
+        {
+            IQuery query = this.Session
+                .CreateQuery(queryString);
+
+            foreach (KeyValuePair<string, object> keyValue in parameters)
+            {
+                query.SetParameter(keyValue.Key, keyValue.Value);
+            }
+
+            return query.UniqueResult<T>();
+
+        }
+        public IEnumerable<T> GetByHqlQuery(string queryString, IDictionary<string, object> parameters)
+        {
+            IQuery query = this.Session
+                .CreateQuery(queryString);
+
+            foreach (KeyValuePair<string, object> keyValue in parameters)
+            {
+                query.SetParameter(keyValue.Key, keyValue.Value);
+            }
+
+            return query.List<T>();
+
+        }
+
+
+        public T GetUniqueByQuery(IDictionary<string, object> parameters)
+        {
+            ICriteria criteria = this.Session
+                .CreateCriteria(typeof(T));
+
+            foreach (KeyValuePair<string, object> keyValue in parameters)
+            {
+                criteria.Add(Restrictions.Eq(keyValue.Key, keyValue.Value));
+            }
+
+            return criteria.UniqueResult<T>();
+        }
+
     }
 }

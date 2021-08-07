@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Biblioseca.DataAccess.Books;
+using Biblioseca.DataAccess.Partners;
 using Biblioseca.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NHibernate;
@@ -10,7 +10,7 @@ using NHibernate.Context;
 namespace Biblioseca.Test
 {
     [TestClass]
-    public class BookDaoTest
+    public class PartnerDaoTest
     {
         private ISessionFactory sessionFactory;
         private ISession session;
@@ -35,28 +35,12 @@ namespace Biblioseca.Test
         [TestMethod]
         public void GetAll()
         {
-            BookDao bookDao = new BookDao(this.sessionFactory);
+            PartnerDao partnerDao = new PartnerDao(this.sessionFactory);
 
-            IEnumerable<Book> books = bookDao.GetAll();
+            IEnumerable<Partner> Partners = partnerDao.GetAll();
 
-            Assert.IsTrue(books.Any());
+            Assert.IsTrue(Partners.Any());
         }
-
-        [TestMethod]
-        public void GetByFilter()
-        {
-            BookDao bookDao = new BookDao(this.sessionFactory);
-
-            BookFilterDto bookFilterDto = new BookFilterDto
-            {
-                Title = "De la estratosfera a Japón",
-                AuthorFirstName = "Carlitos"
-            };
-
-            IEnumerable<Book> books = bookDao.GetByFilter(bookFilterDto);
-
-            Assert.IsTrue(books.Any());
-        }
-
+        
     }
 }

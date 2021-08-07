@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Authors\AuthorDao.cs" />
     <Compile Include="Authors\IAuthorDao.cs" />
+    <Compile Include="Books\BookFilterDto.cs" />
     <Compile Include="Books\IBookDao.cs" />
     <Compile Include="Categories\ICategoryDao.cs" />
     <Compile Include="Loans\ILoanDao.cs" />
