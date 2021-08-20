@@ -39,6 +39,22 @@ namespace Biblioseca.DataAccess.Loans
 
             return criteria.List<Loan>();
         }
+
+        public virtual Loan GetLoan(int bookId, int partnerId)
+        {
+            ICriteria criteria = this.Session
+                .CreateCriteria<Loan>();
+
+            criteria.CreateCriteria("Book")
+                .Add(Restrictions.Eq("Id", bookId));
+
+            criteria.CreateCriteria("Partner")
+                .Add(Restrictions.Eq("Id", partnerId));
+
+            criteria.Add(Restrictions.Eq("ReturnedAt", null));
+
+            return criteria.UniqueResult<Loan>();
+        }
     }
 
 }

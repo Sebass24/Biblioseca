@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Biblioseca.Services
+namespace Biblioseca.DataAccess.Categories
 {
-    public interface IBasicServices
+    public class CategoryFilter
     {
-
+        public string Name { get; set; }
     }
 }

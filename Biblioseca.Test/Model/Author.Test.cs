@@ -1,19 +1,20 @@
 ﻿using Biblioseca.Model;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NHibernate;
 using NHibernate.Cfg;
+using NUnit.Framework;
 
 
 namespace Biblioseca.Test
 {
-    [TestClass]
+    [TestFixture]
     public class AuthorTests
     {
         private ISessionFactory sessionFactory;
         private ISession session;
         private ITransaction transaction;
 
-        [TestInitialize] //before (antes de cada test)
+        [SetUp] //before (antes de cada test)
         public void SetUp()
         {
             sessionFactory = new Configuration().Configure().BuildSessionFactory();
@@ -21,7 +22,7 @@ namespace Biblioseca.Test
             this.transaction = this.session.BeginTransaction();
         }
 
-        [TestCleanup] //after (despues de cada test)
+        [TearDown] //after (despues de cada test)
         public void CleanUp()
         {
             this.transaction.Rollback();
@@ -29,7 +30,7 @@ namespace Biblioseca.Test
             
         }
 
-        [TestMethod]
+        [Test]
         public void CreateAuthor()
         {
             Author author = new Author
@@ -49,6 +50,49 @@ namespace Biblioseca.Test
             Assert.IsNotNull(created);
 
             Assert.AreEqual(author.Id, created.Id);
+        }
+
+        [Test]
+        public void UsingCreate()
+        {
+            Author author = Author.Create(
+                "Wanda",
+                "Maximoff"
+                );
+            
+            this.session.Save(author);
+            this.session.Flush();
+            this.session.Clear();
+
+            Assert.IsTrue(author.Id > 0);
+
+            Author created = this.session.Get<Author>(author.Id);
+
+            Assert.IsNotNull(created);
+
+            Assert.AreEqual(author.Id, created.Id);
+        }
+
+        [Test]
+        public void MarkAsDeleted()
+        {
+            Author author = Author.Create("juan", "carlos");
+
+            Assert.IsTrue(!author.Deleted);
+
+            author.MarkAsDeleted();
+
+            this.session.Save(author);
+            this.session.Flush();
+            this.session.Clear();
+
+            Assert.IsTrue(author.Id > 0);
+
+            Author created = this.session.Get<Author>(author.Id);
+
+            Assert.IsNotNull(created);
+
+            Assert.AreEqual(author.Deleted, created.Deleted);
         }
     }
 }

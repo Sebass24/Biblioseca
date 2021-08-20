@@ -17,6 +17,16 @@ namespace Biblioseca.Services
             this.authorDao = authorDao;
         }
 
+        public void Create(Author author)
+        {
+            this.authorDao.Save(author);
+        }
+
+        public Author Get(int authorId)
+        {
+            return this.authorDao.Get(authorId);
+        }
+
         public IEnumerable<Author> ListAuthors()
         {
             IEnumerable<Author> authors = authorDao.GetAll();
@@ -25,6 +35,30 @@ namespace Biblioseca.Services
 
             return authors;
         }
+
+        public IEnumerable<Author> SerchAuthorByFirstName(string firstName)
+        {
+            AuthorFilter authorFilter = new AuthorFilter()
+            {
+                FirtsName = firstName
+            };
+
+            Ensure.NotNull(authorDao.GetByFilter(authorFilter), "No se encontró el autor");
+            
+            return authorDao.GetByFilter(authorFilter);
+        }
+        public IEnumerable<Author> SerchAuthorByLastName(string lastName)
+        {
+            AuthorFilter authorFilter = new AuthorFilter()
+            {
+                LastName = lastName
+            };
+
+            Ensure.NotNull(authorDao.GetByFilter(authorFilter), "No se encontró el autor");
+            
+            return authorDao.GetByFilter(authorFilter);
+        }
+
 
 
     }

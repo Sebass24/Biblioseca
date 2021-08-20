@@ -12,10 +12,24 @@ namespace Biblioseca.Service
         private readonly BookDao bookDao;
         private readonly LoanDao loanDao;
 
+        public BookService(BookDao bookDao)
+        {
+            this.bookDao = bookDao;
+            
+        }
         public BookService(BookDao bookDao, LoanDao borrowDao)
         {
             this.bookDao = bookDao;
             this.loanDao = borrowDao;
+        }
+
+        public IEnumerable<Book> ListBooks()
+        {
+            IEnumerable<Book> books = bookDao.GetAll();
+
+            Ensure.NotNull(books, "No hay Libros.");
+
+            return books;
         }
 
         public bool IsAvailable(int bookId)
@@ -67,6 +81,10 @@ namespace Biblioseca.Service
             return bookDao.GetByFilter(bookFilterAuthor);
         }
 
+        public void Create(Book book)
+        {
+            this.bookDao.Save(book);
+        }
 
 
     }

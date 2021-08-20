@@ -28,5 +28,8 @@
 	<property name="Stock">
 	 <column name="Stock" sql-type="int" not-null="false"/>
 	</property>
+	<property name="Deleted">
+	  <column name="Deleted" sql-type="bit" not-null="true" />
+	</property>
   </class>
 </hibernate-mapping>

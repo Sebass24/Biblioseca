@@ -8,7 +8,7 @@ using Biblioseca.DataAccess.Categories;
 
 namespace Biblioseca.Services
 {
-    class CategoryService
+    public class CategoryService
     {
         private readonly CategoryDao categoryDao;
 
@@ -24,6 +24,11 @@ namespace Biblioseca.Services
             Ensure.NotNull(categories, "No hay categorias.");
 
             return categories;
+        }
+
+        public Category Get(int id)
+        {
+            return this.categoryDao.Get(id);
         }
 
     }

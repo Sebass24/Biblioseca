@@ -63,12 +63,14 @@
   <ItemGroup>
     <Compile Include="Authors\AuthorDao.cs" />
     <Compile Include="Authors\IAuthorDao.cs" />
+    <Compile Include="Authors\AuthorFilter.cs" />
     <Compile Include="Books\BookFilterDto.cs" />
     <Compile Include="Books\IBookDao.cs" />
+    <Compile Include="Categories\CategoryFilter.cs" />
     <Compile Include="Categories\ICategoryDao.cs" />
     <Compile Include="Loans\ILoanDao.cs" />
     <Compile Include="Partners\IPartnerDao.cs" />
-    <Compile Include="PunishmentDao.cs" />
+    <Compile Include="Partners\PartnerFilter.cs" />
     <Compile Include="Loans\LoanDao.cs" />
     <Compile Include="Partners\PartnerDao.cs" />
     <Compile Include="Books\BookDao.cs" />

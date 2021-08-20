@@ -24,6 +24,12 @@ namespace Biblioseca.Services
             this.partnerDao = partnerDao;
         }
 
+        public LoanService(LoanDao loanDao) 
+        {
+            this.loanDao = loanDao;
+        }
+
+
         public Loan LoanABook(int bookId, int partnerId)
         {
             Book book = bookDao.Get(bookId);
@@ -43,7 +49,7 @@ namespace Biblioseca.Services
                 Start = DateTime.Now
             };
 
-            book.Stock -= 1;
+            book.DecreaseStock();
 
             loanDao.Save(loan);
 
@@ -52,7 +58,19 @@ namespace Biblioseca.Services
 
         public void Returns(int bookId, int partnerId)
         {
+            Book book = bookDao.Get(bookId);
+            Ensure.NotNull(book, "El libro no existe. ");
 
+            Partner partner = partnerDao.Get(partnerId);
+            Ensure.NotNull(partner, "El socio no existe. ");
+
+            Loan loan = loanDao.GetLoan(bookId, partnerId);
+            Ensure.NotNull(loan, "No existe el prestamo");
+
+            book.IncreaseStock();
+            loan.Finish = DateTime.Now;
+
+            loanDao.Save(loan);
         }
 
         public IEnumerable<Loan> ListLoans()

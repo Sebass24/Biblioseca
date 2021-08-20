@@ -7,19 +7,20 @@
       <generator class="identity" />
     </id>
     <property name="Start">
-      <column name="Start" sql-type="datetime" not-null="true" />
+      <column name="Start" sql-type="datetime2" not-null="true" />
     </property>
     <property name="Finish">
-      <column name="Finish" sql-type="datetime" not-null="true" />
+      <column name="Finish" sql-type="datetime2" not-null="false" />
     </property>
-	<property name="Status">
-      <column name="Status" sql-type="bit" not-null="true" />
-    </property>
+	
 	<many-to-one name="Partner" class="Partner">
 	    <column name="PartnerId" sql-type="int" not-null="true" />
 	</many-to-one>
 	<many-to-one name="Book" class="Book">
 		<column name="BookId" sql-type="int" not-null="true" />
 	</many-to-one>
+	 <property name="Deleted">
+	    <column name="Deleted" sql-type="bit" not-null="true" />
+	 </property>
   </class>
 </hibernate-mapping>

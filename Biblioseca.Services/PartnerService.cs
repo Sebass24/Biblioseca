@@ -8,13 +8,21 @@ using Biblioseca.DataAccess.Partners;
 
 namespace Biblioseca.Services
 {
-    class PartnerService
+    public class PartnerService
     {
         private readonly PartnerDao partnerDao;
 
         public PartnerService(PartnerDao partnerDao)
         {
             this.partnerDao = partnerDao;
+        }
+        public IEnumerable<Partner> ListPartners()
+        {
+            IEnumerable<Partner> partners = partnerDao.GetAll();
+
+            Ensure.NotNull(partners, "No hay socios.");
+
+            return partners;
         }
 
         public Partner SerchPartnerByUserName(string name)
